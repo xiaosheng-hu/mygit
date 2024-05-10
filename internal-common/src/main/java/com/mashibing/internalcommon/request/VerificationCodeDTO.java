@@ -1,7 +1,7 @@
-package com.mashibing.apipassenger.request;
+package com.mashibing.internalcommon.request;
 
 import lombok.Data;
-import org.springframework.web.util.pattern.PathPattern;
+
 @Data
 public class VerificationCodeDTO {
     private String passengerPhone;
