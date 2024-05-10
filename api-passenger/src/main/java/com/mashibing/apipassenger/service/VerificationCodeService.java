@@ -1,8 +1,10 @@
 package com.mashibing.apipassenger.service;
 
+import com.mashibing.apipassenger.remote.ServicePassengerUserClient;
 import com.mashibing.apipassenger.remote.ServiceVerificationcodeClient;
 import com.mashibing.internalcommon.constant.CommonStatusEnum;
 import com.mashibing.internalcommon.dto.ResponseResult;
+import com.mashibing.internalcommon.request.VerificationCodeDTO;
 import com.mashibing.internalcommon.response.NumberCodeResponse;
 import com.mashibing.internalcommon.response.TokenResponse;
 import net.sf.json.JSONObject;
@@ -15,6 +17,8 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 public class VerificationCodeService {
+    @Autowired
+    private ServicePassengerUserClient servicePassengerUserClient;
     @Autowired
     private ServiceVerificationcodeClient serviceVerificationcodeClient;
     @Autowired
@@ -80,7 +84,11 @@ public class VerificationCodeService {
         }
         //System.out.println("校验验证码");
         //判断原来是否有用户，并进行对应的处理
-        System.out.println("判断原来是否有用户，并进行对应的处理");
+        VerificationCodeDTO verificationCodeDTO = new VerificationCodeDTO();
+        verificationCodeDTO.setPassengerPhone(passengerPhone);
+        servicePassengerUserClient.loginOrRegister(verificationCodeDTO);
+
+        //System.out.println("判断原来是否有用户，并进行对应的处理");
         //颁发令牌
         System.out.println("颁发令牌");
         //响应
