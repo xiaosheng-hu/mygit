@@ -3,10 +3,12 @@ package com.mashibing.apipassenger.service;
 import com.mashibing.apipassenger.remote.ServicePassengerUserClient;
 import com.mashibing.apipassenger.remote.ServiceVerificationcodeClient;
 import com.mashibing.internalcommon.constant.CommonStatusEnum;
+import com.mashibing.internalcommon.constant.IdentityConstant;
 import com.mashibing.internalcommon.dto.ResponseResult;
 import com.mashibing.internalcommon.request.VerificationCodeDTO;
 import com.mashibing.internalcommon.response.NumberCodeResponse;
 import com.mashibing.internalcommon.response.TokenResponse;
+import com.mashibing.internalcommon.util.JwtUtils;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,8 +92,7 @@ public class VerificationCodeService {
 
         //System.out.println("判断原来是否有用户，并进行对应的处理");
         //颁发令牌
-
-
+        String token = JwtUtils.generateToken(passengerPhone, IdentityConstant.PASSENGER_IDENTITY);
 
 
         System.out.println("颁发令牌");
