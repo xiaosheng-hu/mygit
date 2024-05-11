@@ -98,7 +98,7 @@ public class VerificationCodeService {
         System.out.println("颁发令牌");
         //响应
         TokenResponse tokenResponse=new TokenResponse();
-        tokenResponse.setToken("token value");
+        tokenResponse.setToken(token);
         return ResponseResult.success(tokenResponse);
     }
 }
