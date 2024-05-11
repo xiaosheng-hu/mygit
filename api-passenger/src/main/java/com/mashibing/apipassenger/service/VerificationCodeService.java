@@ -90,6 +90,10 @@ public class VerificationCodeService {
 
         //System.out.println("判断原来是否有用户，并进行对应的处理");
         //颁发令牌
+
+
+
+
         System.out.println("颁发令牌");
         //响应
         TokenResponse tokenResponse=new TokenResponse();
