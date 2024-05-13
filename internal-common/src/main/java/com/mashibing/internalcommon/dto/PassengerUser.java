@@ -1,4 +1,4 @@
-package com.mashibing.servicepassengeruser.dto;
+package com.mashibing.internalcommon.dto;
 
 import lombok.Data;
 
@@ -12,4 +12,5 @@ public class PassengerUser {
     private String passengerName;
     private byte passengerGender;
     private byte state;
+    private String profilePhoto;
 }
