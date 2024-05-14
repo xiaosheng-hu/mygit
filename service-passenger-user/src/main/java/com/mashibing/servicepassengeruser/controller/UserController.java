@@ -16,9 +16,10 @@ public class UserController {
         System.out.println("手机号："+passengerPhone);
         return userService.loginOrRegister(passengerPhone);
     }
-    @GetMapping("/user")
-    public ResponseResult getUser(@RequestBody VerificationCodeDTO verificationCodeDTO){
-        String passengerPhone = verificationCodeDTO.getPassengerPhone();
+    @GetMapping("/user/{phone}")
+    public ResponseResult getUser(@PathVariable("phone") String passengerPhone){
+
+        System.out.println("service-passenger-user:phone"+passengerPhone);
         return userService.getUserByPhone(passengerPhone);
     }
 }
